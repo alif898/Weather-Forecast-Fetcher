@@ -8,7 +8,7 @@ Of course, there are many weather related apps and services which can help me wi
 
 The idea is to find a source of weather forecast data, build an ETL pipeline to take this data, store it somewhere before delivering the weather forecasts in a way that is convenient to me, such as through an email or link that I can access easily.
 
-This writeup will be cover the following parts:
+This writeup will cover the following parts:
  1. System design
  2. Data visualisation
  3. Instructions on how to use this repo
