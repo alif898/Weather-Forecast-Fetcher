@@ -46,6 +46,8 @@ gcloud run deploy --image gcr.io/PROJECT-ID/plotly-dash --platform managed  --pr
 
 The link to the web app can be found [here](https://plotly-dash-2qgkppxq3q-as.a.run.app/).
 
+Note: I may have to shutdown the app when my trial credits run out :(
+
 Although this setup currently works very well, there is definitely room for improvement to increase the scope of this project. 
 1. The web app design is currently very simple.
 2. We can look for other sources of weather forecast data and incorporate it into our system in order to validate the forecasts and improve its accuracy. (I'm sure we have all been let down before by an inaccurate weather forecast....)
