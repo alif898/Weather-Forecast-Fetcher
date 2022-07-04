@@ -25,7 +25,7 @@ For task orchestration, Apache Airflow is a commonly used tool in the Data Engin
 
 With Cloud Composer set up, we now have weather forecast data regularly loaded into BigQuery. Now, it is time to figure out how to deliver this data.
 
-To visualise the weather forecast data, I decided to use Plotly and Dash. Dash is a framework created by Plotly for interactive web applications. Plotly itself is a well-known data visualisation tool in Python, so I thought this setup will work well. Since Dash can create a web app to display the weather forecast, I decided to use Google Cloud Run to deploy the web app. Again, since the bulk of this project is already on GCP, it will be convenient to use Google Cloud Run. Google Cloud Run is a compute platform that allows us to run and deploy containers, without the hassle of infrastrcuture management.
+To visualise the weather forecast data, I decided to use Plotly and Dash. Dash is a framework created by Plotly for interactive web applications. Plotly itself is a well-known data visualisation tool in Python, so I thought this setup will work well. Since Dash can create a web app to display the weather forecast, I decided to use Google Cloud Run to deploy the web app. Again, since the bulk of this project is already on GCP, it will be convenient to use Google Cloud Run. Google Cloud Run is a compute platform that allows us to run and deploy containers, without the hassle of infrastrcuture management. We do this by setting up a [Dockerfile](plotly-dash/Dockerfile) with instructions on how to deploy the app.
 
 An email will also be sent out through each successful run of the DAG, with an EmailOperator that uses the SendGrid API.
 
@@ -35,10 +35,13 @@ To summarise, here is a diagram showing the system design of this project.
 
 ## Instructions on how to use this repo
 
-1. Create a GCP account and enable BigQuery, Google Cloud Composer, Google Cloud Storage, Google Cloud Run, Google Cloud CLI & SendGrid API
-2. Ensure you have a service account set up that has permissions for the above services
-3. Create a Google Cloud Composer instance. forecast_dag.py and utilities should go into the dags/ folder of the bucket in Google Cloud Storage that belongs to the instance of Google Cloud Composer created.
-4. plotly-dash folder is used to build the web app. Use the following commands in the terminal to upload into Google Cloud Run:
+Requirements:
+- GCP account, with BigQuery, Google Cloud Composer, Google Cloud Storage, Google Cloud Run, Google Cloud CLI & SendGrid API enabled
+- GCP service account with permissions for all the above services
+- Mapbox API access token for the web app
+
+1. Create a Google Cloud Composer instance. forecast_dag.py and utilities should go into the dags/ folder of the bucket in Google Cloud Storage that belongs to the instance of Google Cloud Composer created.
+2. The plotly-dash folder is used to build the web app. Navigate to the folder and run the following commands in the terminal to upload into Google Cloud Run:
 
 gcloud builds submit --tag gcr.io/PROJECT-ID/plotly-dash  --project=PROJECT-ID
 
