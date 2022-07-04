@@ -41,7 +41,7 @@ Requirements:
 - Mapbox API access token for the web app
 
 1. Create a Google Cloud Composer instance. [forecast_dag.py](forecast_dag.py) and [utilities](utilities) should go into the dags/ folder of the bucket in Google Cloud Storage that belongs to the instance of Google Cloud Composer created.
-2. The [plotly-dash folder](plotly-dash) is used to build the web app. Navigate to the folder and run the following commands in the terminal to upload into Google Cloud Run:
+2. The [plotly-dash](plotly-dash) folder is used to build the web app. Navigate to the folder and run the following commands in the terminal to upload into Google Cloud Run:
 
 gcloud builds submit --tag gcr.io/PROJECT-ID/plotly-dash  --project=PROJECT-ID
 
