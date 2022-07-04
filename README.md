@@ -19,7 +19,7 @@ For the data source, I discovered that [data.gov.sg](https://data.gov.sg/) has a
 
 Next, I was considering how to store the data, as well as how to go about using a task orchestration tool to handle the ETL process. I decided to use this project as an opportunity to familiarise myself with a cloud computing service, in this case, Google Cloud Platform (GCP), due to its relatively generous free tier and trial period.
 
-As such, I decided to go with GCP’s BigQuery as the data storage solution. Although the scale of this project is unlikely to be able to make full use of BigQuery, it is still a learning opportunity for me to familiarise myself with a data warehouse solution. The schema used can be found in [schema.py](utilities/schema.py).
+As such, I decided to go with GCP’s BigQuery as the data storage solution. Although the scale of this project is unlikely to be able to make full use of BigQuery, it is still a learning opportunity for me to familiarise myself with a data warehouse. The schema used can be found in [schema.py](utilities/schema.py).
 
 For task orchestration, Apache Airflow is a commonly used tool in the Data Engineering space, in part due to the fact that it is open source. However, it might seem that setting up an instance of Apache Airflow, even locally, can be cumbersome to manage. Conveniently, GCP has a service called Google Cloud Composer, which is a managed instance of Apache Airflow, so I will be using this. The airflow DAG used can be found in [forecast_dag.py](forecast_dag.py)
 
@@ -40,8 +40,8 @@ Requirements:
 - GCP service account with permissions for all the above services
 - Mapbox API access token for the web app
 
-1. Create a Google Cloud Composer instance. forecast_dag.py and utilities should go into the dags/ folder of the bucket in Google Cloud Storage that belongs to the instance of Google Cloud Composer created.
-2. The plotly-dash folder is used to build the web app. Navigate to the folder and run the following commands in the terminal to upload into Google Cloud Run:
+1. Create a Google Cloud Composer instance. [forecast_dag.py](forecast_dag.py) and [utilities](utilities) should go into the dags/ folder of the bucket in Google Cloud Storage that belongs to the instance of Google Cloud Composer created.
+2. The [plotly-dash folder](plotly-dash) is used to build the web app. Navigate to the folder and run the following commands in the terminal to upload into Google Cloud Run:
 
 gcloud builds submit --tag gcr.io/PROJECT-ID/plotly-dash  --project=PROJECT-ID
 
