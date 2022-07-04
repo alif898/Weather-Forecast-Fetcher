@@ -15,3 +15,5 @@ This writeup will cover the following parts:
  4. Conclusion
 
 ## System design
+
+For the data source, I discovered that [data.gov.sg](data.gov.sg) has an API that allows us to fetch the 2hr and 24hr forecast data of Singapore
