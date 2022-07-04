@@ -25,7 +25,9 @@ For task orchestration, Apache Airflow is a commonly used tool in the Data Engin
 
 With Cloud Composer set up, we now have weather forecast data regularly loaded into BigQuery. Now, it is time to figure out how to deliver this data.
 
-To visualise the weather forecast, I decided to use Plotly and Dash. Dash is a framework created by Plotly for interactive web applications. Plotly itself is a well-known data visualisation tool in Python, so I thought this setup will work well. Since Dash can create a web app to display the weather forecast, I decided to use Google Cloud Run to deploy the web app. Again, since the bulk of this project is already on GCP, it will be convenient to use Google Cloud Run. Google Cloud Run is a compute platform that allows us to run and deploy containers, without the hassle of infrastrcuture management.
+To visualise the weather forecast data, I decided to use Plotly and Dash. Dash is a framework created by Plotly for interactive web applications. Plotly itself is a well-known data visualisation tool in Python, so I thought this setup will work well. Since Dash can create a web app to display the weather forecast, I decided to use Google Cloud Run to deploy the web app. Again, since the bulk of this project is already on GCP, it will be convenient to use Google Cloud Run. Google Cloud Run is a compute platform that allows us to run and deploy containers, without the hassle of infrastrcuture management.
+
+An email will also be sent out through each successful run of the DAG, with an EmailOperator that uses the SendGrid API.
 
 To summarise, here is a diagram showing the system design of this project.
 
@@ -33,3 +35,19 @@ To summarise, here is a diagram showing the system design of this project.
 
 ## Instructions on how to use this repo
 
+1. Create a Google Cloud Composer instance. forecast_dag.py and utilities should go into the dags/ folder of the bucket in Google Cloud Storage that belongs to the instance of Google Cloud Composer created.
+2. plotly-dash folder is used to build the web app. Ensure you have Google Cloud CLI installed. Use the following commands in the terminal to upload into Google Cloud Run:
+
+gcloud builds submit --tag gcr.io/PROJECT-ID/plotly-dash  --project=PROJECT-ID
+
+gcloud run deploy --image gcr.io/PROJECT-ID/plotly-dash --platform managed  --project=PROJECT-ID --allow-unauthenticated
+
+## Conclusion
+
+The link to the web app can be found [here](https://plotly-dash-2qgkppxq3q-as.a.run.app/).
+
+Although this setup currently works very well, there is definitely room for improvement to increase the scope of this project. 
+1. The web app design is currently very simple.
+2. We can look for other sources of weather forecast data and incorporate it into our system in order to validate the forecasts and improve its accuracy. (I'm sure we have all been let down before by an inaccurate weather forecast....)
+
+Nevertheless, this project has been helpful in keeping me abreast of the daily weather forecast. Thank you for reading!
