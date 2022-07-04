@@ -35,14 +35,18 @@ To summarise, here is a diagram showing the system design of this project.
 
 ## Instructions on how to use this repo
 
-1. Create a Google Cloud Composer instance. forecast_dag.py and utilities should go into the dags/ folder of the bucket in Google Cloud Storage that belongs to the instance of Google Cloud Composer created.
-2. plotly-dash folder is used to build the web app. Ensure you have Google Cloud CLI installed. Use the following commands in the terminal to upload into Google Cloud Run:
+1. Create a GCP account and enable BigQuery, Google Cloud Composer, Google Cloud Storage, Google Cloud Run, Google Cloud CLI & SendGrid API
+2. Ensure you have a service account set up that has permissions for the above services
+3. Create a Google Cloud Composer instance. forecast_dag.py and utilities should go into the dags/ folder of the bucket in Google Cloud Storage that belongs to the instance of Google Cloud Composer created.
+4. plotly-dash folder is used to build the web app. Use the following commands in the terminal to upload into Google Cloud Run:
 
 gcloud builds submit --tag gcr.io/PROJECT-ID/plotly-dash  --project=PROJECT-ID
 
 gcloud run deploy --image gcr.io/PROJECT-ID/plotly-dash --platform managed  --project=PROJECT-ID --allow-unauthenticated
 
 ## Conclusion
+
+![diagram](https://github.com/alif898/Weather-Forecast-Fetcher/blob/main/sample.png?raw=true)
 
 The link to the web app can be found [here](https://plotly-dash-2qgkppxq3q-as.a.run.app/).
 
