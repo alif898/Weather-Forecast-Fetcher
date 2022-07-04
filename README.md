@@ -16,4 +16,4 @@ This writeup will cover the following parts:
 
 ## System design
 
-For the data source, I discovered that [data.gov.sg](https://data.gov.sg/) has an API that allows us to fetch the 2hr and 24hr forecast data of Singapore
+For the data source, I discovered that [data.gov.sg](https://data.gov.sg/) has an API that allows us to fetch the 2hr and 24hr forecast data of Singapore, so I will be using that as the data source. The code that handles the logic of making the API request and wrangling the data into a pandas DataFrame is found in [forecast.py](https://github.com/alif898/Weather-Forecast-Fetcher/blob/main/utilities/forecast.py), under utilities.
