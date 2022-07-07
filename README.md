@@ -56,7 +56,7 @@ The link to the web app can be found [here](https://plotly-dash-2qgkppxq3q-as.a.
 Note: I may have to shutdown the app when my trial credits run out :(
 
 Although this setup currently works very well, there is definitely room for improvement to increase the scope of this project. 
-1. The web app design is currently very simple.
+1. The web app design is currently very simple, we could improve the design.
 2. We can look for other sources of weather forecast data and incorporate it into our system in order to validate the forecasts and improve its accuracy. (I'm sure we have all been let down before by an inaccurate weather forecast....)
 
-Nevertheless, this project has been helpful in keeping me abreast of the daily weather forecast. Thank you for reading!
+Nevertheless, this project has been helpful in keeping me abreast of the daily weather forecast, while also getting to explore new technologies. Thank you for reading!
